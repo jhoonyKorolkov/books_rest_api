@@ -26,6 +26,8 @@ export class BooksService {
 
   findOne(id: number): IBook {
     const book = this.books.find(b => b.id == id);
+    console.log(book);
+
     if (!book) {
       // throw new HttpException('not fond', HttpStatus.NOT_FOUND);
       // throw new NotFoundException({

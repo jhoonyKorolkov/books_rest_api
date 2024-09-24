@@ -11,7 +11,7 @@ export class NotFoundBookException extends HttpException {
       {
         message: 'книга не найдена',
         error_code: 'not_found_book_exception',
-        createdAt: new Date(),
+        createdAt: new Date().toISOString(),
         ...code,
       },
       HttpStatus.NOT_FOUND

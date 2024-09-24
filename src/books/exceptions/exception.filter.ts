@@ -22,6 +22,12 @@ export class AllExceptionsFilter implements ExceptionFilter {
         ? exception.getStatus()
         : HttpStatus.INTERNAL_SERVER_ERROR;
 
+    if (status !== HttpStatus.INTERNAL_SERVER_ERROR) {
+      response.status(status).json(exception);
+
+      return;
+    }
+
     response.status(status).json({
       statusCode: status,
       timestamp: new Date().toISOString(),
